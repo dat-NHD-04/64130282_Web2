@@ -30,10 +30,10 @@ public class AboutMe extends HttpServlet {
 
         out.println("<div class='container'>");
         out.println("<h1>Thông tin cá nhân</h1>");
-        out.println("<p><strong>👤 Họ và tên:</strong> Nguyễn Văn A</p>");
-        out.println("<p><strong>📧 Email:</strong> nguyenvana@example.com</p>");
-        out.println("<p><strong>📞 Số điện thoại:</strong> 0123 456 789</p>");
-        out.println("<p><strong>📍 Địa chỉ:</strong> 123 Đường ABC, TP.HCM</p>");
+        out.println("<p><strong>👤 Họ và tên:</strong> Nguyễn Huy Đạt</p>");
+        out.println("<p><strong>📧 Email:</strong> dat.nh.64cntt@ntu.edu.vn</p>");
+        out.println("<p><strong>📞 Số điện thoại:</strong> 0706143401</p>");
+        out.println("<p><strong>📍 Địa chỉ:</strong> Khu đô thị Lê Hồng Phong-Nha Trang</p>");
         out.println("</div>");
 
         out.println("</body></html>");
