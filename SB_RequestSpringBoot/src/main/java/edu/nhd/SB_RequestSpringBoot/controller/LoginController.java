@@ -22,7 +22,7 @@ public class LoginController {
         
         ModelAndView modelAndView = new ModelAndView();
         
-        if ("vemoni".equals(id) && "123456".equals(password)) {
+        if ("dat".equals(id) && "123456".equals(password)) {
             modelAndView.setViewName("dashboard");
         } else {
             modelAndView.setViewName("login");
