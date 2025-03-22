@@ -1,0 +1,53 @@
+/* Sidebar */
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-left: 4px solid #007bff;
+    border-radius: 10px;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hiệu ứng khi hover */
+.sidebar:hover {
+    background-color: #e9ecef;
+    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Tiêu đề trong sidebar */
+.sidebar h3 {
+    color: #007bff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Nội dung trong sidebar */
+.sidebar p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Danh sách liên kết trong sidebar */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #0056b3;
+}
