@@ -18,7 +18,11 @@ public class PageController {
             new Page(3, "Liên hệ", "contact", "/page/view/3", "/page/edit/3", "/page/delete/3")
     ));
 
-
+    @GetMapping("/dashboard")
+	public String dashboard() {
+		return "dashboard";
+	}
+    
     @GetMapping("/page/list")
     public String listPages(ModelMap model) {
         model.addAttribute("pages", pages);

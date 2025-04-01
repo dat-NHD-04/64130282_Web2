@@ -22,6 +22,11 @@ public class PostController {
             new Post(2, "Bài viết 2", "2", "/post/view/2", "/post/edit/2", "/post/delete/2"),
             new Post(3, "Bài viết 3", "3", "/post/view/3", "/post/edit/3", "/post/delete/3")
     ));
+	
+	@GetMapping("/dashboard")
+	public String dashboard() {
+		return "dashboard";
+	}
 	@GetMapping("/post/list")
     public String listPosts(ModelMap model) {
         model.addAttribute("posts", posts);
