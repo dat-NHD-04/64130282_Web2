@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="header">
+		<header class='header'>
+			<div><img src="background.png"/></div>
+			<nav class='navbar'>
+            	<a th:href="@{/}" id='active'>Home</a>
+            	<a th:href="@{/about}">About</a>
+            	<a th:href="@{/list}">Student List</a>
+            	<a th:href="@{/addNew}">Add New</a>
+        	</nav>
+		</header>
+	</div>
+	<div th:fragment="sidebar">
+		<div class="sidebar">
+			<img src="sidebar.jpg"/>
+		</div>
+	</div>
+	<div th:fragment="footer" class="footer">
+		<span>NHD</span>
+	</div>
+</body>
+</html>

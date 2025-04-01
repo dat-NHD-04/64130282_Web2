@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="style.css" rel="stylesheet"/>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+	<div th:replace="layout :: header"></div>
+	<div class="body">
+		<div class="content">
+			<section class='home' id='home'>
+	        <div class='home-content'>
+	            <h1>Chào mừng tới với dự án của tôi</h1>
+	            <h3 class='text-animation'>Tôi <span>là 1 sinh viên công nghệ thông tin</span></h3>
+	            <p>
+	            Đây là dự án được tôi tạo ra nhằm mục đích ôn tập cho việc thi giữa kì học phần web2
+	            </p>
+	
+	            <div class='social-icons'>
+	                <a href='#'><i class='bx bxl-linkedin' ></i></a>
+	                <a href='#'><i class='bx bxl-github' ></i></a>
+	                <a href='#'><i class='bx bxl-instagram-alt'></i></a>
+	                <a href='#'><i class='bx bxl-facebook-circle'></i></a>
+	            </div>
+	
+	            <div class='btn-group'>
+	                <a href='#' class='btn'>More</a>
+	                <a href='#contact' class='btn'>Contact</a>
+	            </div>
+	        </div>
+	        <div class='home-img'>
+	            <img src='nhd.png' alt=''>
+	        </div>
+    </section>
+		</div>
+		<div th:replace="layout :: sidebar"></div>
+	</div>
+	<div th:replace="layout :: footer"></div>
+</body>
+</html>
