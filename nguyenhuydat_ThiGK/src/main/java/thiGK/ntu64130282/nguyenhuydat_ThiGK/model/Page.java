@@ -4,13 +4,17 @@ public class Page {
     private int id;
     private String pageName;
     private String keyword;
-    private String content;
+    private String viewUrl;
+    private String editUrl;
+    private String deleteUrl;
 
-    public Page(int id, String pageName, String keyword, String content) {
+    public Page(int id, String pageName, String keyword, String viewUrl, String editUrl, String deleteUrl) {
         this.id = id;
         this.pageName = pageName;
         this.keyword = keyword;
-        this.content = content;
+        this.viewUrl = viewUrl;
+        this.editUrl = editUrl;
+        this.deleteUrl = deleteUrl;
     }
 
     public int getId() {
@@ -37,11 +41,27 @@ public class Page {
         this.keyword = keyword;
     }
 
-    public String getContent() {
-        return content;
+    public String getViewUrl() {
+        return viewUrl;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setViewUrl(String viewUrl) {
+        this.viewUrl = viewUrl;
+    }
+
+    public String getEditUrl() {
+        return editUrl;
+    }
+
+    public void setEditUrl(String editUrl) {
+        this.editUrl = editUrl;
+    }
+
+    public String getDeleteUrl() {
+        return deleteUrl;
+    }
+
+    public void setDeleteUrl(String deleteUrl) {
+        this.deleteUrl = deleteUrl;
     }
 }

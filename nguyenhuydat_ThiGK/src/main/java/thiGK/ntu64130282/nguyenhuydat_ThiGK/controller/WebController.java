@@ -41,10 +41,15 @@ public class WebController {
                           @RequestParam("pageName") String pageName, 
                           @RequestParam("keyword") String keyword, 
                           ModelMap model) {
-        pages.add(new Page(id, pageName, keyword, "/page/view/" + id, "/page/edit/" + id, "/page/delete/" + id));
+        String viewUrl = "/page/view/" + id;
+        String editUrl = "/page/edit/" + id;
+        String deleteUrl = "/page/delete/" + id;
+        
+        pages.add(new Page(id, pageName, keyword, viewUrl, editUrl, deleteUrl));
         model.addAttribute("pages", pages);
         return "pageList";
     }
+
 
     @GetMapping("/post/list")
     public String listPosts(ModelMap model) {
@@ -62,8 +67,13 @@ public class WebController {
                           @RequestParam("title") String title, 
                           @RequestParam("categoryId") String categoryId, 
                           ModelMap model) {
-        posts.add(new Post(id, title, categoryId, "/post/view/" + id, "/post/edit/" + id, "/post/delete/" + id));
+        String viewUrl = "/post/view/" + id;
+        String editUrl = "/post/edit/" + id;
+        String deleteUrl = "/post/delete/" + id;
+        
+        posts.add(new Post(id, title, categoryId, viewUrl, editUrl, deleteUrl));
         model.addAttribute("posts", posts);
         return "postList";
     }
-}
+    }
+

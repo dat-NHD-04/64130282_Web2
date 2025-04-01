@@ -4,11 +4,17 @@ public class Post {
     private int id;
     private String title;
     private String categoryId;
+    private String viewUrl;
+    private String editUrl;
+    private String deleteUrl;
 
-    public Post(int id, String title, String categoryId) {
+    public Post(int id, String title, String categoryId, String viewUrl, String editUrl, String deleteUrl) {
         this.id = id;
         this.title = title;
         this.categoryId = categoryId;
+        this.viewUrl = viewUrl;
+        this.editUrl = editUrl;
+        this.deleteUrl = deleteUrl;
     }
 
     public int getId() {
@@ -33,5 +39,29 @@ public class Post {
 
     public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getViewUrl() {
+        return viewUrl;
+    }
+
+    public void setViewUrl(String viewUrl) {
+        this.viewUrl = viewUrl;
+    }
+
+    public String getEditUrl() {
+        return editUrl;
+    }
+
+    public void setEditUrl(String editUrl) {
+        this.editUrl = editUrl;
+    }
+
+    public String getDeleteUrl() {
+        return deleteUrl;
+    }
+
+    public void setDeleteUrl(String deleteUrl) {
+        this.deleteUrl = deleteUrl;
     }
 }
