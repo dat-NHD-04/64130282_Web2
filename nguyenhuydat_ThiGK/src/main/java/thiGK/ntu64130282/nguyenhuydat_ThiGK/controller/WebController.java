@@ -5,51 +5,51 @@ import java.util.Arrays;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-
 @Controller
-public class WebController {
-	ArrayList<Student> sinhViens = new ArrayList<Student>(Arrays.asList(
-			new Student("64130282", "Nguyễn Huy Đạt", 7.0),
-			new Student("64136785", "Nguyễn Văn A", 6.0),
-			new Student("64139221", "Trần Văn B", 4.5),
-			new Student("64132235", "Lê Văn C", 6.9)
-			));
-	
-	@GetMapping("/")
-	public String toHome() {
-		return "index";
-	}
-	
-	
-	@GetMapping("/page/view/id")
-	public String toList(ModelMap model) {
-		model.addAttribute("svs", sinhViens);
-		return "List";
-	}
-	
-	@GetMapping("/page/new")
-	public String toNew(ModelMap model) {
-		return "Addnew";
-	}
-	@GetMapping("/page/delete/id")
-	public String toNew(ModelMap model) {
-		return "Delete";
-	}
-	
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String login(ModelMap model, HttpServletRequest request) {
-		String mssv = request.getParameter("mssv");
-		String hoTen = request.getParameter("hoTen");
-		double diemTB = Double.parseDouble(request.getParameter("diemTB"));
-		Student student = new Student(mssv, hoTen, diemTB);
-		sinhViens.add(student);
-		model.addAttribute("sv", sinhViens);
-		return "list";
-	}
+@RequestMapping("/page")
+public class PageController {
+
+    @GetMapping("/list")
+    public String listPages(ModelMap model) {
+        model.addAttribute("pages", pages);
+        return "list";
+    }
+
+    @GetMapping("/addnew")
+    public String addNewPageForm(ModelMap model) {
+        return "addNew";
+    }
+
+    @PostMapping("/add")
+    public String addPage(@RequestParam("id") int id, 
+                          @RequestParam("pageName") String pageName, 
+                          @RequestParam("keyword") String keyword, 
+                          @RequestParam("content") String content, 
+                          ModelMap model) {
+        pages.add(new Page(id, pageName, keyword, content));
+        model.addAttribute("pages", pages);
+        return "list";
+    }
+
+    @GetMapping("/view/{id}")
+    public String viewPage(@PathVariable int id, ModelMap model) {
+        for (Page page : pages) {
+            if (page.getId() == id) {
+                model.addAttribute("page", page);
+                return "view";
+            }
+        }
+        return "error";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deletePage(@PathVariable int id, ModelMap model) {
+        pages.removeIf(page -> page.getId() == id);
+        model.addAttribute("pages", pages);
+        return "list";
+    }
 }
