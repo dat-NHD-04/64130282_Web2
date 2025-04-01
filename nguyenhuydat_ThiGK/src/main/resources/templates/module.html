@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .dauTrang {
+            background-size: cover;
+            height: 200px;
+        }
+        .hinhBen {
+            background-size: cover;
+            width: 30%;
+            height: 100%;
+        }
+        .chanTrang {
+            text-align: center;
+            padding: 15px;
+            background: #f4f4f4;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: #f4f4f4;
+        }
+        .menu a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<div th:fragment="dauTrang" class="dauTrang"></div>
+
+<div th:fragment="danhMuc">
+    <nav class="menu">
+    	<a>Dashboard</a>
+        <a th:href="@{/about}">Page -List</a>
+        <a th:href="@{/studentlist}">Page -Addnew</a>
+        <a th:href="@{/add}">Post - List</a>
+        <a th:href="@{/add}">Post - Addnew</a>
+    </nav>
+</div>
+
+<div th:fragment="hinhBen" class="hinhBen"></div>
+
+<div th:fragment="chanTrang">
+    <p>©2025 by Nguyễn Huy Đạt - FIT.NTU</p>
+</div>
+
+</body>
+</html>

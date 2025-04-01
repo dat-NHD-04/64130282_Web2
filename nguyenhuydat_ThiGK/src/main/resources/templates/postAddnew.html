@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>Add New Post</title>
 </head>
 <body>
-
+    <h1>Add New Post</h1>
+    
+    <form action="/dashboard/post/add" method="post">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required><br><br>
+        
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+        
+        <label for="categoryId">Category ID:</label>
+        <input type="text" id="categoryId" name="categoryId" required><br><br>
+        
+        <button type="submit">Add Post</button>
+    </form>
 </body>
 </html>

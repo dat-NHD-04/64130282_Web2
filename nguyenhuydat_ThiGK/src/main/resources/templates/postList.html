@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>Post List</title>
 </head>
 <body>
-
+    <h1>List of Posts</h1>
+    
+    <a href="/dashboard/post/addnew">Add New Post</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post : ${posts}">
+                <td th:text="${post.title}"></td>
+                <td th:text="${post.categoryId}"></td>
+                <td>
+                    <a th:href="${post.viewUrl}">View</a> |
+                    <a th:href="${post.editUrl}">Edit</a> |
+                    <a th:href="${post.deleteUrl}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
