@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Post</title>
+
+    <!-- Tailwind CSS (chỉ nên dùng cho dev, không dùng bản CDN này trong production) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Font Awesome để hiển thị icon trong RichText Editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Rich Text Editor -->
+    <link rel="stylesheet" th:href="@{/richtext/richtext.min.css}">
+    <script th:src="@{/richtext/jquery.richtext.min.js}"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -13,7 +25,7 @@
 <div class="max-w-3xl mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
     <h1 class="text-2xl font-bold mb-6">Edit Post</h1>
     <form th:action="@{/posts/edit/{id}(id=${post.id})}" th:object="${post}" method="post" enctype="multipart/form-data">
-        
+
         <!-- Tiêu đề -->
         <div class="mb-4">
             <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
@@ -35,11 +47,10 @@
             <p class="mt-1 text-xs text-gray-500">Chỉ chọn nếu bạn muốn thay ảnh hiện tại.</p>
         </div>
 
-        <!-- Nội dung -->
+        <!-- Nội dung (Rich Text) -->
         <div class="mb-4">
             <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Content</label>
-            <textarea id="content" th:field="*{content}" rows="5" required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <textarea id="content" th:field="*{content}" rows="5" required></textarea>
         </div>
 
         <!-- Danh mục -->
@@ -63,6 +74,13 @@
         </div>
     </form>
 </div>
+
+<!-- Kích hoạt Rich Text -->
+<script>
+    $(document).ready(function () {
+        $('#content').richText();
+    });
+</script>
 
 </body>
 </html>

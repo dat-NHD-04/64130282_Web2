@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Create New Post</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<!-- Font Awesome (bổ sung dòng này để hiển thị icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Rich Text CSS & JS -->
+    <link rel="stylesheet" th:href="@{/richtext/richtext.min.css}">
+    <script th:src="@{/richtext/jquery.richtext.min.js}"></script>
 </head>
 <body class="bg-gray-100 min-h-screen">
 
@@ -13,7 +23,8 @@
 <div class="container mx-auto px-4 mt-8">
     <h1 class="text-2xl font-bold mb-6">Create New Post</h1>
 
-    <form th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data" class="bg-white shadow-md rounded-lg p-6 space-y-6">
+    <form th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data"
+          class="bg-white shadow-md rounded-lg p-6 space-y-6">
 
         <!-- Tiêu đề -->
         <div>
@@ -30,11 +41,11 @@
             <p class="text-sm text-gray-500 mt-1">Bạn có thể chọn nhiều ảnh (Giữ Ctrl hoặc Shift khi chọn).</p>
         </div>
 
-        <!-- Nội dung -->
+        <!-- Nội dung (Rich Text) -->
         <div>
             <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Content</label>
-            <textarea id="content" th:field="*{content}" rows="5" required
-                      class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <textarea th:field="*{content}" th:id="content" rows="5" required
+                      class="w-full border border-gray-300 rounded-md px-4 py-2"></textarea>
         </div>
 
         <!-- Danh mục -->
@@ -56,6 +67,13 @@
         </div>
     </form>
 </div>
+
+<!-- Kích hoạt Rich Text Editor -->
+<script>
+    $(document).ready(function () {
+        $('#content').richText();
+    });
+</script>
 
 </body>
 </html>
